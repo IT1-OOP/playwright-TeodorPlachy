@@ -6,6 +6,16 @@ def test_page_title():
         page = browser.new_page()
         page.goto("C:/Users/Teodor/Desktop/PlayWright/playwright-TeodorPlachy/index.html")  # Načte lokální HTML soubor
         nadpis_1 = page.locator('h1').first
+        nadpis_text = page.locator('text="Nadpis 1"')
+        div_1 = page.locator('.container')
+        odkaz = page.locator('a')
+        
+        expect(odkaz).to_be_visible()
         expect(nadpis_1).to_be_visible()
+        expect(nadpis_text).to_be_visible()
+        expect(div_1).to_be_visible()
+        expect(nadpis_text).to_have_count(1)
+        odkaz.click()
+        
         browser.close()
 
